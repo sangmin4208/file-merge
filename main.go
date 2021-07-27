@@ -10,8 +10,9 @@ import (
 
 
 func main(){
-	path := "./output/202101"
-	// InPutPath(&path)
+	// path := "./output/202101"
+	path:=""
+	InPutPath(&path)
 	files,err := ioutil.ReadDir(path)
 	 if err != nil {
 		 log.Fatal(err, "\n경로를 찾을 수 없습니다.")
@@ -39,7 +40,6 @@ func merge(contents [][]byte) []byte{
 	merged := []byte{}
 
 	for _,content := range contents{
-		fmt.Println(string(content))
 		content = []byte(string(content) + "\n")
 		merged = append(merged,content...)
 	}
