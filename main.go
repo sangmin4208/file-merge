@@ -5,7 +5,6 @@ import (
 	"io/fs"
 	"io/ioutil"
 	"log"
-	"os"
 )
 
 
@@ -32,7 +31,7 @@ func InPutPath(path *string){
 }
 
 func readFile(path string,fileName string) []byte{
-	f,_:= os.ReadFile(path + "/" + fileName)
+	f,_:= ioutil.ReadFile(path + "/" + fileName)
 	return f
 }
 
@@ -46,5 +45,5 @@ func merge(contents [][]byte) []byte{
 	return merged
 }
 func writeFile(path string, content []byte){
-	os.WriteFile(path+"/merged.txt", content,fs.ModeAppend)
+	ioutil.WriteFile(path+"/merged.txt", content,fs.ModePerm)
 }
